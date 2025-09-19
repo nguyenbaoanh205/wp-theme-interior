@@ -32,7 +32,7 @@
       <meta property="og:site_name" content="Happy Living Interior" />
       <meta property="article:modified_time" content="2025-07-29T04:00:03+00:00" />
       <meta name="twitter:card" content="summary_large_image" /> -->
-   <script type="application/ld+json" class="yoast-schema-graph">
+   <!-- <script type="application/ld+json" class="yoast-schema-graph">
       {
          "@context": "https://schema.org",
          "@graph": [{
@@ -82,7 +82,7 @@
             "inLanguage": "vi"
          }]
       }
-   </script>
+   </script> -->
    <!-- / Yoast SEO plugin. -->
    <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
    <link rel='prefetch' href='<?php echo get_template_directory_uri(); ?>/js/flatsome.js?ver=a0a7aee297766598a20e' />
