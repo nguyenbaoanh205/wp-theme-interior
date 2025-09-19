@@ -106,13 +106,15 @@ function shortcode_function()
 }
 
 // import style.css
-// function my_theme_enqueue_styles() {
-//     wp_enqueue_style('my-theme-style', get_stylesheet_uri());
-// }
-// add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
+function my_theme_enqueue_styles()
+{
+    wp_enqueue_style('my-theme-style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 
 // THÊM THƯ VIỆN ISOTOPE
-function custom_enqueue_scripts() {
+function custom_enqueue_scripts()
+{
     wp_enqueue_script(
         'isotope',
         'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js',
@@ -130,3 +132,8 @@ function custom_enqueue_scripts() {
     );
 }
 add_action('wp_enqueue_scripts', 'custom_enqueue_scripts');
+
+// Giữ 9 sản phẩm / trang cho trang shop
+add_filter('loop_shop_per_page', function ($cols) {
+    return 9;
+}, 20);
