@@ -6,7 +6,27 @@ get_header();
 <main id="main" class="">
     <div class="shop-page-title category-page-title page-title ">
         <div class="page-title-inner flex-row  medium-flex-wrap container">
-            <!-- Breadcrumb + filter (giữ nguyên HTML cũ) -->
+            <div class="flex-col flex-grow medium-text-center">
+                <div class="is-medium">
+                    <nav class="woocommerce-breadcrumb breadcrumbs ">
+                        <a href="<?php echo home_url(); ?>">Trang chủ</a>
+                        <span class="divider">/</span> <span style="font-size: 18px; color: #000">Cửa hàng</span>
+                    </nav>
+                </div>
+
+                <div class="category-filtering category-filter-row show-for-medium">
+                    <a href="#" data-open="#shop-sidebar" data-visible-after="true" data-pos="left" class="filter-button uppercase plain">
+                        <i class="icon-equalizer"></i>
+                        <strong>Lọc</strong>
+                    </a>
+                    <div class="inline-block">
+                    </div>
+                </div>
+            </div>
+            <div class="flex-col medium-text-center">
+                <?php woocommerce_result_count(); ?>
+                <?php woocommerce_catalog_ordering(); ?>
+            </div>
         </div>
     </div>
 
@@ -24,7 +44,8 @@ get_header();
 
                 <?php if (woocommerce_product_loop()) : ?>
                     <div class="products row row-small large-columns-3 medium-columns-3 small-columns-2 has-equal-box-heights equalize-box">
-                        <?php while (have_posts()) : the_post(); global $product; ?>
+                        <?php while (have_posts()) : the_post();
+                            global $product; ?>
                             <div class="product-small col has-hover product type-product post-<?php the_ID(); ?> status-publish instock <?php echo implode(' ', wp_get_post_terms(get_the_ID(), 'product_cat', array('fields' => 'slugs'))); ?> has-post-thumbnail shipping-taxable purchasable product-type-simple">
                                 <div class="col-inner">
                                     <div class="badge-container absolute left top z-1">
