@@ -123,11 +123,9 @@ get_header();
 				</div>
 			</div>
 			<div class="flex-col medium-text-center">
-				<div class="flex-col medium-text-center">
-					<?php woocommerce_result_count(); ?>
-					<?php woocommerce_catalog_ordering(); ?>
-					<!-- do_action('woocommerce_before_shop_loop'); hoặc là dùng cái này -->
-				</div>
+				<?php woocommerce_result_count(); ?>
+				<?php woocommerce_catalog_ordering(); ?>
+				<!-- do_action('woocommerce_before_shop_loop'); hoặc là dùng cái này -->
 			</div>
 		</div>
 	</div>

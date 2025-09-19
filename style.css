@@ -57,12 +57,12 @@ IMPORTANT : If you write your CSS code below, it will be deleted when you'll upd
 	top: 100%;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 19vw;
-	background-color: rgba(0, 0, 0, 0.5);
+	/* width: 35vw; */
+	background-color: rgba(0, 0, 0, 0.6);
 	padding: 20px;
-	justify-content: space-around;
+	justify-content: space-between;
 	z-index: 999;
-	margin-top: 27px;
+	margin-top: 25px;
 }
 
 .header-nav>li.menu-item-has-children:hover::after {
@@ -83,6 +83,10 @@ IMPORTANT : If you write your CSS code below, it will be deleted when you'll upd
 	display: block;
 	margin-bottom: 10px;
 	text-transform: uppercase;
+}
+
+.header-nav .sub-menu>li {
+	width: 250px;
 }
 
 /* Submenu con trong cột */
@@ -106,4 +110,8 @@ IMPORTANT : If you write your CSS code below, it will be deleted when you'll upd
 
 .header-nav .sub-menu>li .sub-menu li a:hover {
 	color: #fff;
+}
+
+.woocommerce .woocommerce-result-count {
+	margin: 10px 9px 0 0;
 }
