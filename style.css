@@ -1,0 +1,109 @@
+/*
+Theme Name: MyThemeBanh
+Theme URI: https://techjobs.vn/
+Author: Godream Themes
+Author URI: https://techjobs.vn/
+Description: Theme Name is a WordPress shopping theme designed for WooCommerce. The theme is ideal for supermarkets, shopping malls or convenience stores with loads of product categories.
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: text_domain
+Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout, custom-header, custom-background, custom-menu, editor-style, featured-images, microformats, post-formats
+
+The styleheets of Theme Name are located in assets/css.
+IMPORTANT : If you write your CSS code below, it will be deleted when you'll update the theme.
+*/
+
+/*	################################################################
+	CSS OVERVIEW 	
+
+	1. IMPORT FILES
+	2. GENERAL
+	3. ELEMENTS
+	4. HEADER
+	5. FOOTER
+	...
+
+################################################################# */
+
+/*==========================================================
+	1. IMPORT FILES
+==========================================================*/
+/* Fonts */
+/* @import "./libs/font-awesome/css/font-awesome.min.css";
+@import "./libs/owl-carousel/assets/owl.carousel.min.css"; */
+
+/* Reset */
+.header-nav,
+.header-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.header-nav li {
+	position: relative;
+}
+
+/* Ẩn tất cả submenu mặc định */
+.header-nav .sub-menu {
+	display: none;
+}
+
+/* Khi hover vào menu cha (vd: Sản phẩm) -> mở mega menu */
+.header-nav>li.menu-item-has-children:hover>.sub-menu {
+	display: flex;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 19vw;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	justify-content: space-around;
+	z-index: 999;
+	margin-top: 27px;
+}
+
+.header-nav>li.menu-item-has-children:hover::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	/* bằng khoảng cách bạn muốn */
+}
+
+/* Tiêu đề cột */
+.header-nav .sub-menu>li>a {
+	font-weight: bold;
+	font-size: 15px;
+	color: #fff;
+	display: block;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+/* Submenu con trong cột */
+.header-nav .sub-menu>li .sub-menu {
+	display: block;
+	/* chỉ hiển thị khi mega menu đang mở */
+	position: static;
+	background: none;
+	padding: 0;
+	box-shadow: none;
+}
+
+.header-nav .sub-menu>li .sub-menu li a {
+	font-weight: normal;
+	font-size: 14px;
+	color: #ccc;
+	display: block;
+	padding: 4px 0;
+	text-decoration: none;
+}
+
+.header-nav .sub-menu>li .sub-menu li a:hover {
+	color: #fff;
+}
