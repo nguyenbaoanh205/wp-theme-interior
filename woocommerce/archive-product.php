@@ -146,6 +146,7 @@ get_header();
 					$args = array(
 						'post_type' => 'product',
 						'posts_per_page' => 9, // Số lượng sản phẩm muốn hiển thị
+						'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
 					);
 
 					$loop = new WP_Query($args);
@@ -183,7 +184,8 @@ get_header();
 							</div>
 					<?php
 						endwhile;
-						do_action('woocommerce_after_shop_loop');
+						// do_action('woocommerce_after_shop_loop');
+						woocommerce_pagination();
 						wp_reset_postdata(); // Đặt lại dữ liệu sau khi kết thúc vòng lặp
 					else :
 						echo '<p>' . __('No products found') . '</p>'; // Thông báo nếu không có sản phẩm
@@ -193,6 +195,7 @@ get_header();
 
 				<!-- row -->
 				<!-- <div class="container">
+					woocommerce_pagination();
 					<nav class="woocommerce-pagination">
 						<ul class="page-numbers nav-pagination links text-center">
 							<li><span aria-current="page" class="page-number current">1</span></li>
