@@ -41,6 +41,7 @@ if ( ! function_exists( 'itc_theme_setup' ) ) :
 		 */
 		register_nav_menus( array(
 			'main_menu'  => __( 'Main Menu', 'itcthemes' ),
+			'mobile_menu'  => __( 'Mobile Menu', 'itcthemes' ),
 		) );
 
 	}
