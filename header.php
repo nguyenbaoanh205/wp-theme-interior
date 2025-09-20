@@ -498,8 +498,8 @@
          }
       </style>
    </noscript>
-   <link rel="icon" href="https://happyliving.com.vn/wp-content/uploads/2025/02/cropped-Untitled-design-21-32x32.png" sizes="32x32" />
-   <link rel="icon" href="https://happyliving.com.vn/wp-content/uploads/2025/02/cropped-Untitled-design-21-192x192.png" sizes="192x192" />
+   <!-- <link rel="icon" href="https://happyliving.com.vn/wp-content/uploads/2025/02/cropped-Untitled-design-21-32x32.png" sizes="32x32" />
+   <link rel="icon" href="https://happyliving.com.vn/wp-content/uploads/2025/02/cropped-Untitled-design-21-192x192.png" sizes="192x192" /> -->
    <link rel="apple-touch-icon" href="https://happyliving.com.vn/wp-content/uploads/2025/02/cropped-Untitled-design-21-180x180.png" />
    <meta name="msapplication-TileImage" content="https://happyliving.com.vn/wp-content/uploads/2025/02/cropped-Untitled-design-21-270x270.png" />
    <style id="custom-css" type="text/css">
@@ -1318,9 +1318,9 @@
                <div class="flex-row container">
                   <div class="flex-col hide-for-medium flex-left">
                      <ul class="nav nav-left medium-nav-center nav-small  nav-divided">
-                        <li id="menu-item-1671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1671 menu-item-design-default"><a href="https://happyliving.com.vn/blue-sanitary/" class="nav-top-link">BLUE SANITARY</a></li>
-                        <li id="menu-item-1123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1123 menu-item-design-default"><a href="https://sanei.vn/" class="nav-top-link">SANEI</a></li>
-                        <li id="menu-item-155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-155 menu-item-design-default"><a href="https://happyliving.com.vn/chau-toyoura/" class="nav-top-link">TOYOURA</a></li>
+                        <li id="menu-item-1671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1671 menu-item-design-default"><a href="#" class="nav-top-link">BLUE SANITARY</a></li>
+                        <li id="menu-item-1123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1123 menu-item-design-default"><a href="#" class="nav-top-link">SANEI</a></li>
+                        <li id="menu-item-155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-155 menu-item-design-default"><a href="#" class="nav-top-link">TOYOURA</a></li>
                      </ul>
                   </div>
                   <div class="flex-col hide-for-medium flex-center">
@@ -1333,7 +1333,7 @@
                         <li class="header-search-form search-form html relative has-icon">
                            <div class="header-search-form-wrapper">
                               <div class="searchform-wrapper ux-search-box relative form-flat is-normal">
-                                 <form role="search" method="get" class="searchform" action="https://happyliving.com.vn/">
+                                 <form role="search" method="get" class="searchform" action="#">
                                     <div class="flex-row relative">
                                        <div class="flex-col flex-grow">
                                           <label class="screen-reader-text" for="woocommerce-product-search-field-0">Tìm kiếm:</label>
@@ -1351,7 +1351,7 @@
                            </div>
                         </li>
                         <li class="cart-item has-icon has-dropdown">
-                           <a href="https://happyliving.com.vn/gio-hang/" class="header-cart-link is-small" title="Giỏ hàng">
+                           <a href="#" class="header-cart-link is-small" title="Giỏ hàng">
                               <i class="icon-shopping-cart"
                                  data-icon-label="0">
                               </i>
