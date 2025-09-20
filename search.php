@@ -1,124 +1,97 @@
 <?php get_header(); ?>
-<main class="bg-white main-archive">
-	<section class="menuHeader">
-		<div class="container">
-			<p> <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ </a> <i class="fa fa-caret-right" aria-hidden="true"></i>Kết quả tìm kiếm: '<?php echo $_GET['s']; ?>'</p>
-		</div>
-	</section>
-	<section class="container content-introduce activity">
-		<div class="slide row">
-			<div class="col-12 col-xl-8">
-				<div class="news news-search row">
-					<?php if ( have_posts() ) :
-							while ( have_posts() ) : the_post();
-					?>
 
-					<div class="col-md-6 col-sm-6 col-xs-12">
-						<a href="<?php the_permalink(); ?>">
-							<div class="itemGallery">
-								<figure class="hover-img">
-									<img class="img-thumnail" src="<?php echo get_BFI_thumbnail_url(get_post_thumbnail_id(), 400, 280); ?>" alt="">
-								</figure>
-								<h4><?php the_title(); ?></h4>
-								<p>
-									<span><img class="icon-new" src="<?php echo get_template_directory_uri() . '/images/assets/calendar.png'; ?>" alt=""> <?php echo get_the_date('d-m-Y', get_the_id()); ?></span>
-									<span><img class="icon-new" src="<?php echo get_template_directory_uri() . '/images/assets/view.png'; ?>" alt=""> <?php echo getPostViews(get_the_ID()); ?> lượt xem</span>
-								</p>
-							</div>
-						</a>
+<main id="main" class="">
+	<div id="content" class="blog-wrapper blog-archive page-wrapper">
+
+		<div class="row row-large row-divided " style="margin-top: 120px;">
+			<header class="archive-page-header" style="width: 100%;">
+				<div class="row">
+					<div class="large-12 text-center col">
+						<h1 class="page-title is-large uppercase">
+							Kết quả tìm kiếm cho: <span><?php echo get_search_query(); ?></span> </h1>
 					</div>
-					<?php
-					
-					endwhile;
-					else :
-					get_template_part( 'content', 'none' );
-					endif;
-					?>
 				</div>
-				<div class="pagination">
-				    <?php 
-				        bootstrap_pagination();
-				    ?>
-				</div>
-			</div>
-			<div class="col-12 col-xl-4">
-				<div class="news-care">
-					<p>Tin nhiều người quan tâm</p>
-					<ul>
-						<?php
-						// the query
-						$args = array(
-						'post_type' => 'post',
-						'posts_per_page' => 6,
-						'orderby'   => 'meta_value_num',
-										'meta_key'  => 'post_views_count',
-						);
-						$the_query = new WP_Query( $args ); ?>
-						<?php if ( $the_query->have_posts() ) : ?>
-						<!-- pagination here -->
-						<!-- the loop -->
-						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-						<li>
-							<a href="<?php the_permalink(); ?>">
-								<img src="<?php echo get_BFI_thumbnail_url(get_post_thumbnail_id(), 400, 280); ?>" alt="">
-								<span><?php the_title(); ?></span>
-							</a>
-						</li>
-						<?php endwhile; ?>
-						<!-- end of the loop -->
-						<!-- pagination here -->
-						<?php wp_reset_postdata(); ?>
+			</header>
+			<!-- Danh sách bài viết -->
+			<div class="large-9 col">
+				<div id="post-list">
+					<div class="row large-columns-1 medium-columns- small-columns-1">
+						<?php if (have_posts()) : ?>
+							<?php while (have_posts()) : the_post(); ?>
+								<div class="col post-item">
+									<div class="col-inner">
+										<div class="box box-vertical box-text-bottom box-blog-post has-hover">
+
+											<!-- Ảnh đại diện -->
+											<div class="box-image" style="width:40%;">
+												<div class="image-cover" style="padding-top:56%;">
+													<a href="<?php the_permalink(); ?>" class="plain" aria-label="<?php the_title(); ?>">
+														<?php
+														if (has_post_thumbnail()) {
+															the_post_thumbnail('medium', array(
+																'class' => 'attachment-medium size-medium wp-post-image',
+																'alt' => get_the_title(),
+																'loading' => 'lazy'
+															));
+														}
+														?>
+													</a>
+												</div>
+											</div>
+
+											<!-- Nội dung bài viết -->
+											<div class="box-text text-left">
+												<div class="box-text-inner blog-post-inner">
+													<h5 class="post-title is-large">
+														<a href="<?php the_permalink(); ?>" class="plain"><?php the_title(); ?></a>
+													</h5>
+													<div class="is-divider"></div>
+													<p class="from_the_blog_excerpt">
+														<?php echo wp_trim_words(get_the_excerpt(), 20, ' [...]'); ?>
+													</p>
+												</div>
+											</div>
+
+											<!-- Ngày đăng -->
+											<div class="badge absolute top post-date badge-circle-inside">
+												<div class="badge-inner">
+													<span class="post-date-day"><?php echo get_the_date('d'); ?></span><br>
+													<span class="post-date-month is-xsmall"><?php echo get_the_date('M'); ?></span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							<?php endwhile; ?>
+
+							<!-- Phân trang -->
+							<div class="pagination">
+								<?php
+								echo paginate_links(array(
+									'total' => $wp_query->max_num_pages,
+									'mid_size' => 2,
+									'prev_text' => __('« Trước'),
+									'next_text' => __('Sau »'),
+								));
+								?>
+							</div>
+
 						<?php else : ?>
-						<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+							<p>Không tìm thấy kết quả nào cho từ khóa: <strong><?php echo get_search_query(); ?></strong></p>
 						<?php endif; ?>
-					</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<section class="actionGallery pt-70">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3>TIN HOẠT ĐỘNG</h3>
-				</div>
-			</div>
-			<div class="row">
-				<?php
-				// the query
-				$args = array(
-				'post_type' => 'post',
-				'posts_per_page'      => 3,
-				);
-				$the_query = new WP_Query( $args ); ?>
-				<?php if ( $the_query->have_posts() ) : ?>
-				<!-- pagination here -->
-				<!-- the loop -->
-				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-				<div class="col-md-4 col-sm-6 col-xs-12">
-					<a href="<?php the_permalink(); ?>">
-						<div class="itemGallery">
-							<figure class="hover-img">
-								<img class="img-thumnail" src="<?php echo get_BFI_thumbnail_url(get_post_thumbnail_id(), 400, 280); ?>" alt="">
-							</figure>
-							<h4><?php the_title(); ?></h4>
-							<p class="date-time-new">
-								<span><img class="icon-new" src="<?php echo get_template_directory_uri() . '/images/assets/calendar.png'; ?>" alt=""> <?php echo get_the_date('d-m-Y', get_the_id()); ?></span>
-								<span><img class="icon-new" src="<?php echo get_template_directory_uri() . '/images/assets/view.png'; ?>" alt=""> <?php echo getPostViews(get_the_ID()); ?> lượt xem</span>
-							</p>
-						</div>
-					</a>
-				</div>
-				<?php endwhile; ?>
-				<!-- end of the loop -->
-				<!-- pagination here -->
-				<?php wp_reset_postdata(); ?>
-				<?php else : ?>
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+			<!-- Sidebar -->
+			<div class="post-sidebar large-3 col">
+				<?php if (is_active_sidebar('primary-sidebar')): ?>
+					<?php dynamic_sidebar('primary-sidebar'); ?>
 				<?php endif; ?>
 			</div>
 		</div>
-	</section>
+	</div>
 </main>
 
 <?php get_footer(); ?>
