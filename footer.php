@@ -261,7 +261,7 @@
                 <div class="phone-vr-circle-fill"></div>
                 <div class="phone-vr-img-circle">
                     <a target="_blank" href="<?php echo get_field('acf_link_facebook', 'option'); ?>">
-                        <?php $img_fb=get_field('acf_image_facebook', 'option') ?>
+                        <?php $img_fb = get_field('acf_image_facebook', 'option') ?>
                         <img src="<?php echo esc_url($img_fb['url']); ?>" class="entered lazyloaded">
                     </a>
                 </div>
@@ -272,7 +272,7 @@
                 <div class="phone-vr-circle-fill"></div>
                 <div class="phone-vr-img-circle">
                     <a target="_blank" href="<?php echo get_field('acf_link_zalo', 'option'); ?>">
-                        <?php $img_fb=get_field('acf_image_zalo', 'option') ?>
+                        <?php $img_fb = get_field('acf_image_zalo', 'option') ?>
                         <img src="<?php echo esc_url($img_fb['url']); ?>" class="entered lazyloaded">
                     </a>
                 </div>
@@ -945,6 +945,19 @@
         "linkTarget": "2",
         "sharePrefix": "flipbook-"
     };
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuParents = document.querySelectorAll('.mobile-sidebar li.menu-item-has-children > a');
+        menuParents.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const li = this.parentElement;
+                li.classList.toggle('open');
+            });
+        });
+    });
 </script>
 
 <!-- </main>

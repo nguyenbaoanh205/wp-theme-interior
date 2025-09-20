@@ -1341,7 +1341,7 @@
                                           <input type="hidden" name="post_type" value="product" />
                                        </div>
                                        <div class="flex-col">
-                                          <button type="submit" value="Tìm kiếm" class="ux-search-submit submit-button secondary button  icon mb-0" aria-label="Nộp">
+                                          <button type="submit" value="Tìm kiếm" class="submit-button secondary button  icon mb-0" aria-label="Nộp">
                                              <i class="icon-search"></i> </button>
                                        </div>
                                     </div>
@@ -1380,23 +1380,64 @@
                   <!-- Logo -->
                   <div id="logo" class="flex-col logo">
                      <!-- Header logo -->
-                     <a href="<?php echo esc_url(home_url('/')); ?>" title="Happy Living Interior - Nơi mua sắm thiết bị cao cấp, định hình phong cách sống của giới tinh hoa" rel="home">
-                        <?php
-                        $logo = get_field('acf_option_logo', 'option');
-                        ?>
-                        <img width="1020" height="267" src="<?php echo esc_url($logo['url']); ?>" class="header_logo header-logo" alt="Happy Living Interior" />
-                        <!-- <img width="1020" height="267" src="https://happyliving.com.vn/wp-content/uploads/2024/01/Happy-living-05-1024x268.png" class="header-logo-dark" alt="Happy Living Interior" /></a> -->
+                     <a href="<?php echo esc_url(home_url('/')); ?>" title="Happy Living Interior - Nơi mua sắm thiết bị cao cấp, định hình phong cách sống của giới tinh hoa" rel="home"></a>
+                     <?php
+                     $logo = get_field('acf_option_logo', 'option');
+                     ?>
+                     <img width="1020" height="267" src="<?php echo esc_url($logo['url']); ?>" class="header_logo header-logo" alt="Happy Living Interior" />
+                     <!-- <img width="1020" height="267" src="https://happyliving.com.vn/wp-content/uploads/2024/01/Happy-living-05-1024x268.png" class="header-logo-dark" alt="Happy Living Interior" /></a> -->
                   </div>
+
                   <!-- Mobile Left Elements -->
                   <div class="flex-col show-for-medium flex-left">
-                     <!-- <ul class="mobile-nav nav nav-left ">
+                     <ul class="mobile-nav nav nav-left ">
                         <li class="nav-icon has-icon">
                            <a href="#" data-open="#main-menu" data-pos="left" data-bg="main-menu-overlay" data-color="" class="is-small" aria-label="Menu" aria-controls="main-menu" aria-expanded="false">
                               <i class="icon-menu"></i>
                            </a>
                         </li>
-                     </ul> -->
+                     </ul>
                   </div>
+                  <!-- Mobile Sidebar Menu -->
+                  <div id="main-menu" class="mobile-sidebar no-scrollbar mfp-hide">
+                     <div class="sidebar-menu no-scrollbar">
+                        <!-- Search form -->
+                        <ul class="nav nav-sidebar nav-vertical nav-uppercase">
+                           <li class="header-search-form search-form html relative has-icon">
+                              <div class="header-search-form-wrapper">
+                                 <div class="searchform-wrapper ux-search-box relative form-flat is-normal">
+                                    <form role="search" method="get" class="searchform" action="<?php echo esc_url(home_url('/')); ?>">
+                                       <div class="flex-row relative">
+                                          <div class="flex-col flex-grow">
+                                             <label class="screen-reader-text" for="woocommerce-product-search-field">Tìm kiếm:</label>
+                                             <input type="search" id="woocommerce-product-search-field" class="search-field mb-0"
+                                                placeholder="Tìm kiếm…" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off">
+                                             <input type="hidden" name="post_type" value="product">
+                                          </div>
+                                          <div class="flex-col">
+                                             <button type="submit" value="Tìm kiếm"
+                                                class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Tìm kiếm">
+                                                <i class="icon-search"></i>
+                                             </button>
+                                          </div>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                        <?php
+                        wp_nav_menu(array(
+                           'theme_location' => 'main_menu',
+                           'menu_class'     => 'nav nav-sidebar nav-vertical nav-uppercase',
+                           'container'      => false,
+                           'fallback_cb'    => false,
+                           'items_wrap'     => '<ul id="%1$s" class="%2$s" data-tab="1">%3$s</ul>',
+                        ));
+                        ?>
+                     </div>
+                  </div>
+
                   <!-- Left Elements -->
                   <div class="flex-col hide-for-medium flex-left
                         flex-grow">
@@ -1424,27 +1465,27 @@
                            </a>
                            <!-- Cart Sidebar Popup -->
                            <div id="cart-popup" class="mfp-hide">
-                              <div class="cart-popup-inner inner-padding cart-popup-inner--sticky"">
-                                    <div class=" cart-popup-title text-center">
-                                 <span class="heading-font uppercase">Giỏ hàng</span>
-                                 <div class="is-divider"></div>
-                              </div>
-                              <div class="widget woocommerce widget_shopping_cart">
-                                 <div class="widget_shopping_cart_content"></div>
+                              <div class="cart-popup-inner inner-padding cart-popup-inner--sticky">
+                                 <div class=" cart-popup-title text-center">
+                                    <span class="heading-font uppercase">Giỏ hàng</span>
+                                    <div class="is-divider"></div>
+                                 </div>
+                                 <div class="widget woocommerce widget_shopping_cart">
+                                    <div class="widget_shopping_cart_content"></div>
+                                 </div>
                               </div>
                            </div>
+                        </li>
+                     </ul>
                   </div>
-                  </li>
-                  </ul>
+               </div>
+               <div class="container">
+                  <div class="top-divider full-width"></div>
                </div>
             </div>
-            <div class="container">
-               <div class="top-divider full-width"></div>
+            <div class="header-bg-container fill">
+               <div class="header-bg-image fill"></div>
+               <div class="header-bg-color fill"></div>
             </div>
          </div>
-         <div class="header-bg-container fill">
-            <div class="header-bg-image fill"></div>
-            <div class="header-bg-color fill"></div>
-         </div>
-   </div>
-   </header>
+      </header>

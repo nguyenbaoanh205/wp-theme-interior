@@ -115,3 +115,25 @@ IMPORTANT : If you write your CSS code below, it will be deleted when you'll upd
 .woocommerce .woocommerce-result-count {
 	margin: 10px 9px 0 0;
 }
+/* Ẩn tất cả submenu mặc định */
+.mobile-sidebar .sub-menu {
+    display: none;
+    padding-left: 15px;
+}
+
+/* Khi li có class 'open', hiển thị submenu */
+.mobile-sidebar li.open > .sub-menu {
+    display: block;
+}
+
+/* Thêm icon mũi tên vào menu cha (tùy chọn, chỉ là trang trí) */
+.mobile-sidebar li.menu-item-has-children > a::after {
+    content: "\25B6"; /* mũi tên tam giác */
+    float: right;
+    transition: transform 0.4s;
+}
+
+/* Khi mở submenu, xoay mũi tên */
+.mobile-sidebar li.open > a::after {
+    transform: rotate(90deg);
+}
